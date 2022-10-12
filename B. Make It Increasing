@@ -1,0 +1,42 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void Solve()
+{
+    long long int n;cin>>n;
+    long long int a[n];
+    long long int mx=0;
+    long long int cnt=0;
+    for(int i=0;i<=n-1;i++){
+        cin>>a[i];
+    }
+
+    for(int i = n-2;i>=0;i--){
+        while(a[i]>=a[i+1]){
+            a[i] = a[i]/2;
+            cnt++;
+            if(a[i] == 0) break;
+        }
+    }
+
+
+    long long int z=0;
+
+    for(int i=0;i<=n-2;i++){
+        if(a[i]>a[i+1] || a[i]==a[i+1]){
+            z = 1;
+            break;
+        }
+    }
+    if(z==0) cout<<cnt<<endl;
+    else cout<<"-1"<<endl;
+
+}
+
+int32_t main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+        Solve();
+}
